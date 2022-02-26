@@ -15,6 +15,8 @@ options:
   By default, if jumps folder and random folder are not specified, libertyrider.py searches jumps folder and random folder in the current working directory
 
 Resultats provisoires 26/02 : 
+
+
 <img src=26.02_synthese_sans_dsp.png>
 
 <img src=26.02_synthese_fft.png>
