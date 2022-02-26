@@ -13,3 +13,5 @@ options:
   --random RAND_FOLDER  folder with random signal csv
   
   By default, if jumps folder and random folder are not specified, libertyrider.py searches jumps folder and random folder in the current working directory
+
+<img src=26.02_synthese_fft.png>
