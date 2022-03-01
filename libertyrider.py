@@ -375,9 +375,6 @@ if __name__ == '__main__':
         jumps_detect_csv(sys.argv[1], 'peaks')
         jumps_detect_csv(sys.argv[1], 'fft')
         jumps_detect_csv(sys.argv[1], 'wavelet')
-    # except:
-    #     print (err)
-    #     print('vous devez lancer le script en tapant python libertyrider.py path_to_folder_to_process')
 
     #### machine learning ####
 
@@ -590,3 +587,5 @@ if __name__ == '__main__':
 #     plt.ylabel('scores')
 #     plt.xlabel('modeles')
 #     plt.show()
+
+##if __name__ == '__main__': est à la ligne 368
