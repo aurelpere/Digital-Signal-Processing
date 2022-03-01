@@ -19,20 +19,7 @@ dataset1:<br>
 <br>
 résultats (matrice de détection, 1 pour saut détecté, 0 pour saut non détecté)<br>
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     methode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   dsp='peaks'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      dsp='fft'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       dsp='wavelet'<br>
-saut1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;               1      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;         1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
-saut2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                 1     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;          1   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            1<br>
-saut3&#9&#9                 1               1               1<br>
-saut4&#9&#9                 1               1               1<br>
-2sauts&#9&#9                1               1               1<br>
-marche1&#9&#9               0               0               0<br>
-marche2&#9&#9               0               0               0<br>
-marche3               0               1               0<br>
-marche4               0               0               0<br>
-course1               1               0               0<br>
-course2               1               0               0<br>
-course3               1               0               0<br>
-timeit                 0.093 s         0.140 s         48.064 s<br>
+<img src=resultats.png>
 <br>
 dataset2<br>
 13 enregistrements de saut d'environ 10 s<br>
