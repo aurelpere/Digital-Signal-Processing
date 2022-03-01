@@ -19,7 +19,7 @@ dataset1:<br>
 <br>
 résultats (matrice de détection, 1 pour saut détecté, 0 pour saut non détecté)<br>
 <br>
-&#9&#9       methode   dsp='peaks'      dsp='fft'       dsp='wavelet'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     methode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   dsp='peaks'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      dsp='fft'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       dsp='wavelet'<br>
 saut1&#9&#9                 1               1               1<br>
 saut2&#9&#9                 1               1               1<br>
 saut3&#9&#9                 1               1               1<br>
