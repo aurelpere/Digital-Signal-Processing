@@ -62,4 +62,4 @@ Resultats machine learning 26/02 (pour info):
 
 <img src=26.02_synthese_fft.png>
 
-<img src=26.02_synthese_wavelet.png> 
+<img src=26.02_synthese_wavelet.png>
