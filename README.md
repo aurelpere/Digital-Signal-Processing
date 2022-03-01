@@ -19,43 +19,43 @@ dataset1:<br>
 <br>
 résultats (matrice de détection, 1 pour saut détecté, 0 pour saut non détecté)<br>
 <br>
-       methode   dsp='peaks'      dsp='fft'       dsp='wavelet'<br>
-saut1                 1               1               1<br>
-saut2                 1               1               1<br>
-saut3                 1               1               1<br>
-saut4                 1               1               1<br>
-2sauts                1               1               1<br>
-marche1               0               0               0<br>
-marche2               0               0               0<br>
+&#9&#9       methode   dsp='peaks'      dsp='fft'       dsp='wavelet'<br>
+saut1&#9&#9                 1               1               1<br>
+saut2&#9&#9                 1               1               1<br>
+saut3&#9&#9                 1               1               1<br>
+saut4&#9&#9                 1               1               1<br>
+2sauts&#9&#9                1               1               1<br>
+marche1&#9&#9               0               0               0<br>
+marche2&#9&#9               0               0               0<br>
 marche3               0               1               0<br>
 marche4               0               0               0<br>
 course1               1               0               0<br>
 course2               1               0               0<br>
 course3               1               0               0<br>
-timeit                 0.093 s         0.140 s         48.064 s
+timeit                 0.093 s         0.140 s         48.064 s<br>
+<br>
+dataset2<br>
+13 enregistrements de saut d'environ 10 s<br>
+<br>
+la méthode peaks detecte les 5 sauts du premier dataset mais aucun du deuxieme dataset,<br>
+ne détecte aucun saut pour les marches, et détecte des sauts pour les courses.<br>
+cela s'explique car les pics des ondes des courses sont de meme ordre de grandeur<br>
+que ceux des sauts et les pics des sauts du deuxieme dataset sont moins importants.<br>
 
-dataset2
-13 enregistrements de saut d'environ 10 s
-
-la méthode peaks detecte les 5 sauts du premier dataset mais aucun du deuxieme dataset,
-ne détecte aucun saut pour les marches, et détecte des sauts pour les courses.
-cela s'explique car les pics des ondes des courses sont de meme ordre de grandeur
-que ceux des sauts et les pics des sauts du deuxieme dataset sont moins importants.
-
-la méthode fft détecte 5 sauts du premier dataset et 8 saut sur 13 du deuxieme dataset,
-détecte un saut pour une des marches, et ne détecte pas de saut pour les courses.
-la faible magnitude sur les resultats fft à 2Hz pour les sauts s'explique car
-il ne s'agit pas d'un signal périodique, on a donc calibré
-une détection de magnitude à 2Hz relativement faible et une détection des magnitudes
-à 3,4 et 5Hz plus importante pour détecter les marches et courses dont
-les signaux périodiques produisent d'importants pics en transformés de fourrier
-
-la méthode wavelet détecte tous les sauts des deux datasets et ne détecte pas de
-sauts pour les marches et les courses mais prend 500 fois plus de temps que
-les deux autres méthodes.
-
-
-Resultats machine learning 26/02 (pour info): 
+la méthode fft détecte 5 sauts du premier dataset et 8 saut sur 13 du deuxieme dataset,<br>
+détecte un saut pour une des marches, et ne détecte pas de saut pour les courses.<br>
+la faible magnitude sur les resultats fft à 2Hz pour les sauts s'explique car<br>
+il ne s'agit pas d'un signal périodique, on a donc calibré<br>
+une détection de magnitude à 2Hz relativement faible et une détection des magnitudes<br>
+à 3,4 et 5Hz plus importante pour détecter les marches et courses dont<br>
+les signaux périodiques produisent d'importants pics en transformés de fourrier<br>
+<br>
+la méthode wavelet détecte tous les sauts des deux datasets et ne détecte pas de<br>
+sauts pour les marches et les courses mais prend 500 fois plus de temps que<br>
+les deux autres méthodes.<br>
+<br>
+<br>
+Resultats machine learning 26/02 (pour info): <br>
 
 
 <img src=26.02_synthese_sans_dsp.png>
