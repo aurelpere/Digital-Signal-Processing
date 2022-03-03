@@ -38,7 +38,7 @@ une détection de magnitude à 2Hz relativement faible et une détection des mag
 les signaux périodiques produisent d'importants pics en transformés de fourrier<br>
 <br>
 la méthode wavelet détecte tous les sauts des deux datasets et ne détecte pas de<br>
-sauts pour les marches et les courses mais prend 500 fois plus de temps que<br>
+sauts pour les marches et les courses mais prend 30 fois plus de temps que<br>
 les deux autres méthodes.<br>
 <br>
 <br>
