@@ -23,6 +23,8 @@
 # 29.02.22 15h implemetation fonction csv avec methode wavelet
 # 29.02.22 17h réalisation des mesures timeit
 # 29.02.22 18h terminé
+# 03.03.22 14h amélioration de l'algorithme  dsp 'wavelet' en augmentant le pas de la sliding windows
+# de 1 à 10. L'algorithme prend 20 fois moins de temps (on passe de timeit 50 s à 3 s)
 
 ################################################
 # Méthodologie proposée:
@@ -157,6 +159,7 @@
 # la complexité de la méthode fft varie en O(n log n),
 # la complexité de la méthode wavelet varie en O(n)
 # mais on utilise une "sliding window" tres gourmande en ressource
+# pour interpréter les résultats
 
 # ###############################################
 # Résultats
@@ -182,7 +185,7 @@
 # course1               1               0               0
 # course2               1               0               0
 # course3               1               0               0
-# timeit                 0.093 s         0.140 s         48.064 s
+# timeit                 0.093 s         0.140 s        3.177 s
 #
 # dataset2
 # 13 enregistrements de saut d'environ 10 s
@@ -201,7 +204,7 @@
 # les signaux périodiques produisent d'importants pics en transformés de fourrier
 #
 # la méthode wavelet détecte tous les sauts des deux datasets et ne détecte pas de
-# sauts pour les marches et les courses mais prend 500 fois plus de temps que
+# sauts pour les marches et les courses mais prend environ 30 fois plus de temps que
 # les deux autres méthodes.
 
 import pandas as pd
@@ -213,6 +216,7 @@ import argparse
 import sys
 import pywt
 import detecta
+import timeit
 
 ############################################################
 # Traitement du signal (Digital signal processing)
@@ -339,7 +343,7 @@ def jumps_detect_csv(csv_folder, dsp='peaks'):
             a = pd.DataFrame(data=coeff)
             a = a.abs()
             sum_list = []
-            for i in range(len(a.columns) - 100):
+            for i in np.arange(0,len(a.columns) - 100,20):
                 # calibration duree signal 100 centisecondes
                 sliding_column_list = [k for k in range(i, i + 100)]
                 sum = (
@@ -392,8 +396,8 @@ if __name__ == '__main__':
     # plot_signal(i, 'dsp') 'peaks' ou 'wavelet' ou 'fft'
 
     # timeit
-
-    # f="jumps_detect_csv('dataset2','wavelet')"
+    #
+    # f="jumps_detect_csv('dataset2/jumps','wavelet')"
     # t1 = timeit.Timer(f, "from __main__ import jumps_detect_csv")
     # print("jump_detect ran:", t1.timeit(number=1), "s")
 
