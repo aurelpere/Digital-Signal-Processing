@@ -1,0 +1,13 @@
+pylint
+pytest
+pytest-cov
+yapf
+genbadge
+defusedxml
+PyWavelets
+seaborn
+numpy
+matplotlib
+pandas
+sklearn
+detecta
