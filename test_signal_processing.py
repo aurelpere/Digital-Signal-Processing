@@ -82,9 +82,9 @@ def test_plot_peaks():
     dfcsv = pd.read_csv('dataset2/jumps/Raw Data.csv', sep=';')
     acc = dfcsv['Absolute acceleration (m/s^2)']
     results = Peaks.plot_peaks('dataset2/jumps/Raw Data.csv', acc)
+    # pylint: disable=unused-variable
     x_plot, y_plot = results.get_xydata().T
     assert y_plot.any() == acc.values.any()
-
 
 def test_jumps_detect_peak():
     "test function of jumps_detect_peak"

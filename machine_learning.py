@@ -41,6 +41,7 @@ class Pipeline():
         # sampling_rate = 0.01  # 100Hz
         # scale_for_2Hz_sym2_signal = 10  # pywt.scale2frequency('gaus1',10)/0.01==2.0
         scales = np.arange(1, 101, 1)
+        # pylint: disable=unused-variable
         coeff, freq = pywt.cwt(array_raw, scales, mother_wavelet)
         pca = sklearn.decomposition.PCA(n_components=1)
         coeff_pca = pca.fit_transform(coeff)

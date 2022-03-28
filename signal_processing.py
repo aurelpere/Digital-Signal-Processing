@@ -77,6 +77,7 @@ class Wavelet():
         # sampling_rate : 0.01  (100Hz)
         # scale_for_2Hz_sym2_signal : 10  (pywt.scale2frequency('gaus1',10)/0.01==2.)
         scales = np.arange(1, 101, 1)
+        # pylint: disable=unused-variable
         coeff, freq = pywt.cwt(acc.values, scales, mother_wavelet)
         return coeff
 
@@ -155,7 +156,7 @@ class Interface():
         if dsp == 'fft':
             Fft.plot_fft(csv, acc)
         elif dsp == 'wavelet':
-            Peaks.plot_wavelet(csv, acc)
+            Wavelet.plot_wavelet(csv, acc)
         elif dsp == 'peaks':
             Peaks.plot_peaks(csv, acc)
         else:

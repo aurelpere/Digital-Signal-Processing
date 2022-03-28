@@ -3,22 +3,14 @@
 """
 this is test_machine_learning.py
 """
-import os
-import argparse
 import pandas as pd
 import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
-import seaborn as sns
 import pywt
 import sklearn.model_selection
 import sklearn.metrics
 import sklearn.decomposition
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.naive_bayes import GaussianNB
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.ensemble import GradientBoostingClassifier
-from sklearn.neural_network import MLPClassifier
 import pytest
 from machine_learning import Pipeline
 from machine_learning import MachineLearning
@@ -44,6 +36,7 @@ def test_process_wavelet():
     df_wavelet=Pipeline.process_wavelet(dfraw)
     dfraw = dfraw[:600]
     array_raw = dfraw['Absolute acceleration (m/s^2)'].values
+    # pylint: disable=unused-variable
     coeff, freq = pywt.cwt(array_raw, np.arange(1,101,1), 'gaus1')
     pca = sklearn.decomposition.PCA(n_components=1)
     coeff_pca = pca.fit_transform(coeff)
