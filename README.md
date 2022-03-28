@@ -1,5 +1,7 @@
+[![Test-Lint-Format](https://github.com/aurelpere/Digital-Signal-Processing/actions/workflows/main.yml/badge.svg)](https://github.com/aurelpere/Digital-Signal-Processing/actions/workflows/main.yml) ![test-coverage badge](./coverage-badge.svg) [![Maintainability](https://api.codeclimate.com/v1/badges/f7fef0519a3f8312dd6e/maintainability)](https://codeclimate.com/github/aurelpere/Digital-Signal-Processing/maintainability)
+
 # Digital-Signal-Processing<br>
-little jumps signals identification from smartphone accelerator (phyphox datasets)<br>
+little jumps signals identification from smartphone accelerator (phyphox datasets) : hire process test of libertyrider<br>
 <br>
 
 ## usage: 
@@ -73,26 +75,26 @@ Resultats machine learning 26/02 (pour info): <br>
 
 25.02.22.10h
 analyse du problème: reponse par machine learning et/ou par dsp
-pour le dsp,un apprentissage m'est nécessaire
-25.02.22.11h experimentations pour créer le dataset
-25.02.22.13h30 verification de l'intégrité du dataset
-26.02.22 10h optimisation du machine learning pour experimenter sur plusieurs classifiers
-26.02.22 13h30 digestion de la litterature sur cwt et fft
-26.02.22 16h implementation des wavelet et fft dans les fonctions de pipeline et de ML
-26.02.22 18h test des trois modèles de machine learning
-28.02.22 11h relecture de la consigne : pas de machine learning, rédaction de la méthode dsp
-28.02.22 15h création du dataset de sauts, de marche et de course
-28.02.22 15h verification des données et complément sur la rédaction de la méthode dsp
-28.02.22 17h traitement par dsp fft et wavelet et analyse graphique des transformées obtenues
-28.02.22 18h implementation python de la méthode pics avec stackoverflow
-29.02.22 10h resultats decevants pour la methode pics de stackoverflow. implementation de detecta
-29.02.22 11h implementation fonction csv avec methode detecta
-29.02.22 12h implementation fonction csv avec methode fft
-29.02.22 15h implemetation fonction csv avec methode wavelet
-29.02.22 17h réalisation des mesures timeit
-29.02.22 18h terminé
-03.03.22 14h amélioration de l'algorithme  dsp 'wavelet' en augmentant le pas de la sliding windows
-de 1 à 10. L'algorithme prend 20 fois moins de temps (on passe de timeit 50 s à 3 s)
+pour le dsp,un apprentissage m'est nécessaire<br>
+25.02.22.11h experimentations pour créer le dataset<br>
+25.02.22.13h30 verification de l'intégrité du dataset<br>
+26.02.22 10h optimisation du machine learning pour experimenter sur plusieurs classifiers<br>
+26.02.22 13h30 digestion de la litterature sur cwt et fft<br>
+26.02.22 16h implementation des wavelet et fft dans les fonctions de pipeline et de ML<br>
+26.02.22 18h test des trois modèles de machine learning<br>
+28.02.22 11h relecture de la consigne : pas de machine learning, rédaction de la méthode dsp<br>
+28.02.22 15h création du dataset de sauts, de marche et de course<br>
+28.02.22 15h verification des données et complément sur la rédaction de la méthode dsp<br>
+28.02.22 17h traitement par dsp fft et wavelet et analyse graphique des transformées obtenues<br>
+28.02.22 18h implementation python de la méthode pics avec stackoverflow<br>
+29.02.22 10h resultats decevants pour la methode pics de stackoverflow. implementation de detecta<br>
+29.02.22 11h implementation fonction csv avec methode detecta<br>
+29.02.22 12h implementation fonction csv avec methode fft<br>
+29.02.22 15h implemetation fonction csv avec methode wavelet<br>
+29.02.22 17h réalisation des mesures timeit<br>
+29.02.22 18h terminé<br>
+03.03.22 14h amélioration de l'algorithme  dsp 'wavelet' en augmentant le pas de la sliding windows<br>
+de 1 à 10. L'algorithme prend 20 fois moins de temps (on passe de timeit 50 s à 3 s)<br>
 
 
 la différence entre un signal de saut sur place et un signal de marche ou de course
@@ -151,6 +153,7 @@ plusieurs bibliothèques sont comparées ici https://blog.ytotech.com/2015/11/01
 2. on utilisera ensuite une méthode fondée sur la transformée de fourrier, un treshold sur l'ampleur
 des pics de fréquences et éventuellement apres avoir appliqué un filtre coupe-haut sur le signal
 d'entrée
+
 pourquoi? parceque la tranformée de fourrier permet de représenter le signal en fonction de ses
 fréquences et non en fonction du temps.
 elle est souvent utilisée pour identifier des signaux periodiques.
@@ -162,6 +165,7 @@ bibliothèque numpy.fft,
 
 3. on utilisera enfin une méthode de convolution à partir d'une onde mère
 avec un algorithmes de détection de wavelet (ondelette)
+
 pourquoi? parceque la transformée en ondelette continue est souvent utilisée (cwt)
 pour identifier des signaux non périodiques ce qui est le cas pour les enregistrements de saut.
 la transformée en ondelettes (wavelet) permet de réprésenter un signal en fonction
