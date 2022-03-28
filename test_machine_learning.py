@@ -61,9 +61,7 @@ def test_machinelearning():
     assert list(dfresult.index)==['accuracy', 'precision', 'recall', 'AUC']
     assert dfresult.columns=='randomforest'
     assert len(dfresult)==4
-
-def test_compute_scores():
-    "test function of compute_scores"
+def load_dataset():
     df_dataset = Pipeline.build_dataset('dataset2/jumps', 'dataset2/random', 0)
     X = df_dataset[[i for i in list(df_dataset.columns) if i != 'saut']]
     y = df_dataset['saut']
@@ -72,20 +70,19 @@ def test_compute_scores():
         X, y, random_state=0)
     clf.fit(X_train, y_train)
     _predicted = clf.predict(X_test)
+    return y_test,_predicted,clf,X_test
+def test_compute_scores():
+    "test function of compute_scores"
+    # pylint: disable=unused-variable
+    y_test,_predicted,clf,X_test=load_dataset()
     result=MachineLearning.compute_scores(y_test,_predicted,'gtree')
     assert result[0]==0.8181818181818182
     assert result[1]==1
     assert result[2]==0.3333333333333333
 def test_compute_confusion_matrix():
     "test function of compute_confusion_matrix"
-    df_dataset = Pipeline.build_dataset('dataset2/jumps', 'dataset2/random', 0)
-    X = df_dataset[[i for i in list(df_dataset.columns) if i != 'saut']]
-    y = df_dataset['saut']
-    clf = MachineLearning.dico_classifier['gtree']()
-    X_train, X_test, y_train, y_test = sklearn.model_selection.train_test_split(
-        X, y, random_state=0)
-    clf.fit(X_train, y_train)
-    _predicted = clf.predict(X_test)
+    # pylint: disable=unused-variable
+    y_test, _predicted,clf,X_test = load_dataset()
     _accuracy=MachineLearning.compute_scores(y_test, _predicted, 'gtree')[0]
     result=MachineLearning.compute_confusion_matrix(y_test,_predicted,_accuracy,'gtree')
     resultdf=result[0]
@@ -101,14 +98,8 @@ def test_compute_confusion_matrix():
 
 @pytest.mark.filterwarnings("ignore:Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.:UserWarning")
 def test_plot_precision_recall():
-    df_dataset = Pipeline.build_dataset('dataset2/jumps', 'dataset2/random', 0)
-    X = df_dataset[[i for i in list(df_dataset.columns) if i != 'saut']]
-    y = df_dataset['saut']
-    clf = MachineLearning.dico_classifier['gtree']()
-    X_train, X_test, y_train, y_test = sklearn.model_selection.train_test_split(
-        X, y, random_state=0)
-    clf.fit(X_train, y_train)
-    _predicted = clf.predict(X_test)
+    # pylint: disable=unused-variable
+    y_test,_predicted,clf,X_test=load_dataset()
     result=MachineLearning.plot_precision_recall(clf,X_test,y_test,'gtree',_predicted)
     x_plot, y_plot = result.get_xydata().T
     assert list(x_plot)==[0.2727272727272727,1,1]
@@ -117,14 +108,8 @@ def test_plot_precision_recall():
 
 @pytest.mark.filterwarnings("ignore:Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.:UserWarning")
 def test_plot_roc():
-    df_dataset = Pipeline.build_dataset('dataset2/jumps', 'dataset2/random', 0)
-    X = df_dataset[[i for i in list(df_dataset.columns) if i != 'saut']]
-    y = df_dataset['saut']
-    clf = MachineLearning.dico_classifier['gtree']()
-    X_train, X_test, y_train, y_test = sklearn.model_selection.train_test_split(
-        X, y, random_state=0)
-    clf.fit(X_train, y_train)
-    _predicted = clf.predict(X_test)
+    # pylint: disable=unused-variable
+    y_test, _predicted, clf, X_test = load_dataset()
     result=MachineLearning.plot_roc(clf,X_test,y_test,'gtree')
     assert result[0]==0.6666666666666666
     x_plot, y_plot = result[1].get_xydata().T

@@ -15,11 +15,14 @@ from signal_processing import Interface
 
 matplotlib.use("Agg")
 
+def load_data():
+    dfcsv = pd.read_csv('dataset2/jumps/Raw Data.csv', sep=';')
+    acc = dfcsv['Absolute acceleration (m/s^2)']
+    return acc
 
 def test_fft_transform():
     "test function of fft_transform"
-    dfcsv = pd.read_csv('dataset2/jumps/Raw Data.csv', sep=';')
-    acc = dfcsv['Absolute acceleration (m/s^2)']
+    acc = load_data()
     df_fft = Fft.fft_transform(acc)
     assert df_fft.columns == ['magnitude']
     assert df_fft.index.name == 'freq'
@@ -32,8 +35,7 @@ def test_fft_transform():
 @pytest.mark.filterwarnings("ignore:Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.:UserWarning")
 def test_plot_fft():
     "test function of plot_fft"
-    dfcsv = pd.read_csv('dataset2/jumps/Raw Data.csv', sep=';')
-    acc = dfcsv['Absolute acceleration (m/s^2)']
+    acc = load_data()
     df_fft = Fft.fft_transform(acc)
     bars = Fft.plot_fft('dataset2/jumps/Raw Data.csv', acc)
     yvalues = []
@@ -44,16 +46,14 @@ def test_plot_fft():
 
 def test_jumps_detect_fft():
     "test function of detect_fft"
-    dfcsv = pd.read_csv('dataset2/jumps/Raw Data.csv', sep=';')
-    acc = dfcsv['Absolute acceleration (m/s^2)']
+    acc = load_data()
     results = Fft.jumps_detect_fft('dataset2/jumps/Raw Data.csv', acc)
     assert results == 1
 
 
 def test_wavelet_transform():
     "test function of wavelet transform"
-    dfcsv = pd.read_csv('dataset2/jumps/Raw Data.csv', sep=';')
-    acc = dfcsv['Absolute acceleration (m/s^2)']
+    acc = load_data()
     result = Wavelet.wavelet_transform(acc)
     assert result.any() == pywt.cwt(acc.values, np.arange(1, 101, 1),
                                     'gaus1')[0].any()
@@ -62,16 +62,14 @@ def test_wavelet_transform():
 @pytest.mark.filterwarnings("ignore:Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.:UserWarning")
 def test_plot_wavelet():
     "test function of plot_wavelet"
-    dfcsv = pd.read_csv('dataset2/jumps/Raw Data.csv', sep=';')
-    acc = dfcsv['Absolute acceleration (m/s^2)']
+    acc = load_data()
     heatmap = Wavelet.plot_wavelet('dataset2/jumps/Raw Data.csv', acc)
     assert issubclass(type(heatmap), matplotlib.axes.SubplotBase)
 
 
 def test_jumps_detect_wavelet():
     "test function of jumps_detect_wavelet"
-    dfcsv = pd.read_csv('dataset2/jumps/Raw Data.csv', sep=';')
-    acc = dfcsv['Absolute acceleration (m/s^2)']
+    acc = load_data()
     results = Wavelet.jumps_detect_wavelet('dataset2/jumps/Raw Data.csv', acc)
     assert results == 1
 
@@ -79,8 +77,7 @@ def test_jumps_detect_wavelet():
 @pytest.mark.filterwarnings("ignore:Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.:UserWarning")
 def test_plot_peaks():
     "test function of plot_peaks"
-    dfcsv = pd.read_csv('dataset2/jumps/Raw Data.csv', sep=';')
-    acc = dfcsv['Absolute acceleration (m/s^2)']
+    acc = load_data()
     results = Peaks.plot_peaks('dataset2/jumps/Raw Data.csv', acc)
     # pylint: disable=unused-variable
     x_plot, y_plot = results.get_xydata().T
